@@ -48,7 +48,7 @@
       </div>
     </div>
     <div class="page-body">
-      <div style="height: 500px;">1</div>
+      <router-view ></router-view>
       <footer class="page-footer">
         <div class="page-footer-row">
           <div class="page-footer-row-copyright">
