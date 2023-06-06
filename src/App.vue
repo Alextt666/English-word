@@ -47,14 +47,19 @@
         </div>
       </div>
     </div>
-    <footer class="page-footer">
-      <div class="page-footer-row">
-        <div class="page-footer-row-copyright">Copyright 2023 © Alexzhang</div>
-        <div class="page-footer-row-icon">
-          <img src="./assets/images/heart-fill.svg" alt="" />
+    <div class="page-body">
+      <div style="height: 500px;">1</div>
+      <footer class="page-footer">
+        <div class="page-footer-row">
+          <div class="page-footer-row-copyright">
+            Copyright 2023 © Alexzhang
+          </div>
+          <div class="page-footer-row-icon">
+            <img src="./assets/images/heart-fill.svg" alt="" />
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div>
   </div>
 </template>
 <script setup></script>
@@ -63,6 +68,46 @@
 .page-wrapper {
   position: relative;
 }
+
+// 主体区域
+.page-body {
+  margin-top: 4.5rem;
+  margin-left: 258px;
+  min-height: calc(100vh - 4.5rem);
+  position: relative;
+  // 底部版权
+  .page-footer {
+    position: absolute;
+    max-width: 100vw;
+    width: 100%;
+    bottom: 0;
+    z-index: 8;
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
+    .page-footer-row {
+      width: 100%;
+      height: 3.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: $bg-base;
+      font-family: rubik, sans-serif;
+      &-copyright {
+        font-size: 13px;
+        line-height: 1.7;
+        letter-spacing: 0.7px;
+        margin-left: 20px;
+      }
+      &-icon {
+        img {
+          margin-right: 20px;
+          width: 24px;
+        }
+      }
+    }
+  }
+}
+
 // 顶部导航
 .page-header {
   position: fixed;
@@ -74,7 +119,7 @@
   box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
   .header-wrapper {
     width: 100%;
-    height: 5rem;
+    height: 4.5rem;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -89,7 +134,6 @@
     }
   }
 }
-
 // 侧边栏
 .sidebar-wrapper {
   position: fixed;
@@ -138,38 +182,6 @@
       margin: 10px 20px;
       border-radius: 10px;
       cursor: default;
-    }
-  }
-}
-
-// 底部版权
-.page-footer {
-  position: fixed;
-  max-width: 100vw;
-  width: 100%;
-  bottom: 0;
-  z-index: 8;
-  transition: 0.5s;
-  box-shadow: 0 0 20px rgba(89, 102, 122, 0.1);
-  .page-footer-row {
-    width: calc(100% - 258px);
-    margin-left: 258px;
-    height: 5rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    background-color: $bg-base;
-    font-family: rubik, sans-serif;
-    &-copyright {
-      font-size: 13px;
-      line-height: 1.7;
-      letter-spacing: 0.7px;
-    }
-    &-icon {
-      transform: translateX(7rem);
-      img {
-        width: 24px;
-      }
     }
   }
 }
