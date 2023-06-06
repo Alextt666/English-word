@@ -1,0 +1,14 @@
+@import './variable.scss';
+@mixin font_color($color){
+    color:$color;
+    [data-theme="theme"] & {
+        color:$font-color-theme
+    }
+}
+
+@mixin bg_color($color){
+    background-color: $color;
+    [data-theme="theme"] & {
+        background-color: $background-color-theme;
+    }
+}
