@@ -4,9 +4,9 @@
       <img src="@/assets/images/logo.png" alt="Logo" />
     </div>
     <template v-for="tag in tags" :key="tag">
-      <div class="sidebar-main">
+      <div class="sidebar-main" @click="navigateTo">
         <div class="main-items main-title">{{ tag }}</div>
-        <div class="main-items">
+        <div class="main-items" :data-type="tag">
           <div>
             <img :src="`src/assets/images/${tag}.svg`" alt="icon" /> {{ tag }}
           </div>
@@ -25,8 +25,26 @@
 
 <script setup>
 import { reactive } from "vue";
-
+import { useRouter } from "vue-router";
 const tags = reactive(["General", "Begin", "Help"]);
+const router = useRouter();
+function navigateTo(e) {
+  const type = checkType(e.target);
+  if (type) {
+    router.push(`/${type}`);
+  } else {
+    return;
+  }
+}
+
+function checkType(node) {
+  if (node?.dataset?.type) {
+    return node.dataset.type;
+  } else {
+    const curnode = node.parentNode;
+    return checkType(curnode);
+  }
+}
 </script>
 
 <style lang="scss" scoped>
