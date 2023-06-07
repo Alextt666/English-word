@@ -3,13 +3,17 @@
     <div class="header-wrapper">
       <div class="header-icon">
         <div></div>
-        <div></div>
+        <div @click="navigatorTo"></div>
       </div>
     </div>
   </header>
 </template>
 
-<script setup></script>
+<script setup>
+function navigatorTo(){
+  window.open('https://github.com/Alextt666')
+}
+</script>
 
 <style lang="scss" scoped>
 // 顶部导航
@@ -42,6 +46,7 @@
         background-repeat: no-repeat;
         background-position: center center;
         background-color: $block-bg;
+        cursor: pointer;
       }
       div:nth-child(1) {
         background-image: url("../assets/images/moon.svg");

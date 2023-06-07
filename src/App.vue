@@ -7,7 +7,7 @@
 </template>
 <script setup>
 import HeaderNav from "./components/HeaderNav.vue";
-import SideBar from "./components/SideBar.vue";
+import SideBar from "./components/SideBar/SideBar.vue";
 import BodyPage from "./components/BodyPage.vue";
 import { defineComponent } from "vue";
 
