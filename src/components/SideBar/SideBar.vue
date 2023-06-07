@@ -1,36 +1,38 @@
 <template>
-  <div class="sidebar-wrapper" v-if="showTagName">
-    <div class="logo-wrapper">
-      <img src="@/assets/images/logo.png" alt="Logo" />
-      <CloseIcon svgName="nav-collapse" @click="toggleNav(true)"></CloseIcon>
-    </div>
-    <template v-for="tag in navTags" :key="tag">
-      <TagSidebar :tagName="tag" @click="navigateTo"></TagSidebar>
-    </template>
-  </div>
-  <div class="sidebar-wrapper-close" v-else>
-    <div class="logo-wrapper-close">
-      <img src="@/assets/images/alex.png" alt="Logo" />
-    </div>
-    <div class="img-close">
+  <transition name="sidebar" :duration="{ enter: 800, leave: 800 }">
+    <div class="sidebar-wrapper" v-if="showTagName">
+      <div class="logo-wrapper">
+        <img src="@/assets/images/logo.png" alt="Logo" />
+        <CloseIcon svgName="nav-collapse" @click="toggleNav(true)"></CloseIcon>
+      </div>
       <template v-for="tag in navTags" :key="tag">
-       <div :data-type="tag">
-        <img
-          :src="`src/assets/images/${tag}.svg`"
-          alt="icon"
-          @click="navigateTo"
-        />
-       </div>
+        <TagSidebar :tagName="tag" @click="navigateTo"></TagSidebar>
       </template>
     </div>
-    <div class="close-icon">
-      <CloseIcon
-        svgName="nav-collapsed"
-        position="center"
-        @click="toggleNav(false)"
-      ></CloseIcon>
+    <div class="sidebar-wrapper-close" v-else>
+      <div class="logo-wrapper-close">
+        <img src="@/assets/images/alex.png" alt="Logo" />
+      </div>
+      <div class="img-close">
+        <template v-for="tag in navTags" :key="tag">
+          <div :data-type="tag">
+            <img
+              :src="`src/assets/images/${tag}.svg`"
+              alt="icon"
+              @click="navigateTo"
+            />
+          </div>
+        </template>
+      </div>
+      <div class="close-icon">
+        <CloseIcon
+          svgName="nav-collapsed"
+          position="center"
+          @click="toggleNav(false)"
+        ></CloseIcon>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script setup>
@@ -109,5 +111,15 @@ const showTagName = ref(true);
     position: relative;
     margin-top: 2.8rem;
   }
+}
+
+.sidebar-enter-active,
+.sidebar-leave-active {
+  transition: opacity .5s ease-out;
+}
+
+.sidebar-enter-from,
+.sidebar-leave-to {
+  opacity: 0;
 }
 </style>

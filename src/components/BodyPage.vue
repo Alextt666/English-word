@@ -16,6 +16,6 @@ import Footer from './Footer.vue'
   margin-left: 258px;
   min-height: calc(100vh - 4.5rem);
   position: relative;
- 
+  transition: .8s all;
 }
 </style>
