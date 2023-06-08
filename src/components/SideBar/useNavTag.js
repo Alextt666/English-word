@@ -4,12 +4,8 @@ import { useRouter } from "vue-router";
 export function useNavTag() {
   const router = useRouter();
   const navTags = reactive([]);
-  const regx = new RegExp(/[^/]+/);
   router.options.routes.forEach((item) => {
-    const str = item.path.match(regx);
-    if (str) {
-      navTags.push(str[0]);
-    }
+    if (item.name) navTags.push(item.name);
   });
   function navigateTo(e) {
     const type = checkType(e.target);

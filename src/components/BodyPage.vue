@@ -1,5 +1,8 @@
 <template>
   <div class="page-body">
+    <div class="body-title">
+       {{ $route.name }}
+    </div>
     <router-view></router-view>
     <Footer></Footer>
   </div>
@@ -7,6 +10,7 @@
 
 <script setup>
 import Footer from './Footer.vue'
+
 </script>
 
 <style lang="scss" scoped>

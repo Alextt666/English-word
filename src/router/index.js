@@ -5,9 +5,9 @@ import Help from "@/views/Help.vue";
 
 const routes = [
   { path: "/", redirect: "/General" },
-  { path: "/General", component: Dashbord },
-  { path: "/Begin", component: Begin },
-  { path: "/Help", component: Help },
+  { path: "/General", name: "General", component: Dashbord },
+  { path: "/Begin", name: "Begin", component: Begin },
+  { path: "/Help", name: "Help", component: Help },
 ];
 
 const router = createRouter({
