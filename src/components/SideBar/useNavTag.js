@@ -3,7 +3,14 @@ import { useRouter } from "vue-router";
 
 export function useNavTag() {
   const router = useRouter();
-  const navTags = reactive(["General", "Begin", "Help"]);
+  const navTags = reactive([]);
+  const regx = new RegExp(/[^/]+/);
+  router.options.routes.forEach((item) => {
+    const str = item.path.match(regx);
+    if (str) {
+      navTags.push(str[0]);
+    }
+  });
   function navigateTo(e) {
     const type = checkType(e.target);
     if (type) {
@@ -17,8 +24,7 @@ export function useNavTag() {
     if (node?.dataset?.type) {
       return node.dataset.type;
     } else {
-      const curnode = node.parentNode;
-      return checkType(curnode);
+      return node?.parentNode ? checkType(node.parentNode) : false;
     }
   }
 
