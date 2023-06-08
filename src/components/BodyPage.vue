@@ -17,6 +17,7 @@ import BodyTitle from "./BodyTitle.vue";
   margin-top: 4.5rem;
   margin-left: 258px;
   min-height: calc(100vh - 4.5rem);
+  height: calc(100vh - 4.5rem);
   position: relative;
   transition: 0.8s all;
 }
