@@ -1,16 +1,14 @@
 <template>
   <div class="page-body">
-    <div class="body-title">
-       {{ $route.name }}
-    </div>
+    <BodyTitle></BodyTitle>
     <router-view></router-view>
     <Footer></Footer>
   </div>
 </template>
 
 <script setup>
-import Footer from './Footer.vue'
-
+import Footer from "./Footer.vue";
+import BodyTitle from "./BodyTitle.vue";
 </script>
 
 <style lang="scss" scoped>
@@ -20,6 +18,6 @@ import Footer from './Footer.vue'
   margin-left: 258px;
   min-height: calc(100vh - 4.5rem);
   position: relative;
-  transition: .8s all;
+  transition: 0.8s all;
 }
 </style>
