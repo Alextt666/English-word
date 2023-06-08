@@ -1,8 +1,9 @@
 <template>
   <div class="begin-wrapper">
-    <div class="card-img">
-      <div>
-        <img class="card-img-item" :src="imgUrl" alt="img" />
+    <div class="card-img flex-center">
+      <div class="card-img-title">Some Word</div>
+      <div class="card-img-item">
+        <img :src="imgUrl" alt="img" />
       </div>
     </div>
     <div class="card-words">
@@ -14,22 +15,11 @@
 <script setup>
 import { ref, computed } from "vue";
 import { IMG_LIST } from "@/components/Begin/imgUrl.js";
-const rotate = ref(0);
 const count = ref(0);
 const imgUrl = computed(() => IMG_LIST[count.value].url);
 // 下一张
 function nextWord() {
-
-  const cardImg = document.querySelector(".card-img");
-  const imgItem = document.querySelector(".card-img-item");
-  rotate.value = rotate.value == 0 ? 180 : 0;
   if (count.value < IMG_LIST.length - 1) count.value++;
-  if (rotate.value == 180) {
-    imgItem.style.transform = `rotateY(180deg)`;
-  } else {
-    imgItem.style.transform = `rotateY(0deg)`;
-  }
-  cardImg.style.transform = `rotateY(${rotate.value}deg)`;
 }
 </script>
 
@@ -41,6 +31,7 @@ function nextWord() {
   height: 68%;
   justify-content: center;
   transition: 1s all;
+  // 图片区域
   .card-img {
     flex: 2;
     margin: 0 1rem;
@@ -48,12 +39,15 @@ function nextWord() {
     box-shadow: 0 0 10px #ccc;
     background-color: $bg-base;
     border-radius: 10px;
-    transition: all 3s;
+    flex-direction: column;
     &-item {
-      width: 3rem;
-      transition: all 5s;
+      margin-top: 2rem;
+      img {
+        width: 28rem;
+      }
     }
   }
+  // 属于区域
   .card-words {
     flex: 1;
     margin: 0 1rem;
