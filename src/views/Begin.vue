@@ -1,13 +1,27 @@
 <template>
   <div class="begin-wrapper">
     <div class="card-img flex-center">
-      <div class="card-img-title">Some Word</div>
+      <div class="card-img-title flex-center">
+        <h2 class="title-word">{{ word }}</h2>
+        <div class="title-toggle">
+          <img
+            src="@/assets/images/toggle-on.svg"
+            alt="toggle"
+            v-show="isBlur"
+            @click="() => (isBlur = !isBlur)"
+          />
+
+          <img
+            src="@/assets/images/toggle-off.svg"
+            alt="toggle"
+            v-show="!isBlur"
+            @click="() => (isBlur = !isBlur)"
+          />
+        </div>
+      </div>
       <div class="card-img-item">
         <img :src="imgUrl" alt="img" />
       </div>
-    </div>
-    <div class="card-words">
-      <button @click="nextWord">next</button>
     </div>
   </div>
 </template>
@@ -16,7 +30,9 @@
 import { ref, computed } from "vue";
 import { IMG_LIST } from "@/components/Begin/imgUrl.js";
 const count = ref(0);
-const imgUrl = computed(() => IMG_LIST[count.value].url);
+const isBlur = ref(false);
+const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");
+const word = computed(() => IMG_LIST[count.value]?.word || "nothing");
 // 下一张
 function nextWord() {
   if (count.value < IMG_LIST.length - 1) count.value++;
@@ -33,28 +49,29 @@ function nextWord() {
   transition: 1s all;
   // 图片区域
   .card-img {
-    flex: 2;
     margin: 0 1rem;
-    min-width: 32rem;
+    min-width: 42rem;
     box-shadow: 0 0 10px #ccc;
     background-color: $bg-base;
     border-radius: 10px;
     flex-direction: column;
+    justify-content: flex-start;
+
     &-item {
-      margin-top: 2rem;
       img {
         width: 28rem;
       }
     }
-  }
-  // 属于区域
-  .card-words {
-    flex: 1;
-    margin: 0 1rem;
-    min-width: 14rem;
-    box-shadow: 0 0 10px #ccc;
-    border-radius: 10px;
-    background-color: $bg-base;
+    &-title {
+      width: 80%;
+      padding: 2rem 0;
+      position: relative;
+      .title-toggle {
+        position: absolute;
+        right: 2rem;
+        cursor: pointer;
+      }
+    }
   }
 }
 </style>
