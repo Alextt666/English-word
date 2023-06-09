@@ -2,7 +2,7 @@
   <div class="begin-wrapper">
     <div class="card-img flex-center">
       <div class="card-img-title flex-center">
-        <h2 class="title-word">{{ word }}</h2>
+        <h2 :class="['title-word', !isBlur? 'blur-item' : '']">{{ word }}</h2>
         <div class="title-toggle">
           <img
             src="@/assets/images/toggle-on.svg"
@@ -95,5 +95,9 @@ function checkAnswer(){
   input::-webkit-input-placeholder {  
   color: #cccacab2;  
 }  
+}
+
+.blur-item{
+  filter: blur(10px);
 }
 </style>
