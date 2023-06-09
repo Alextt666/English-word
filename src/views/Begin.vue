@@ -37,9 +37,7 @@ const isBlur = ref(false);
 const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");
 const word = computed(() => IMG_LIST[count.value]?.word || "nothing");
 
-const vFocus = {
-  mounted: (el) => el.focus(),
-};
+
 
 // 下一张
 function nextWord() {
