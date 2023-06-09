@@ -1,6 +1,8 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
+  outline: none;
 }
 body {
   background-color: #eff3f9;

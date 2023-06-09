@@ -23,7 +23,7 @@
         <img :src="imgUrl" alt="img" />
       </div>
       <div class="card-input">
-        <input type="text" v-focus />
+        <input type="text" v-focus  placeholder="Check your answer" @keyup.enter="checkAnswer" v-model="inputText"/>
       </div>
     </div>
   </div>
@@ -34,14 +34,19 @@ import { ref, computed } from "vue";
 import { IMG_LIST } from "@/components/Begin/imgUrl.js";
 const count = ref(0);
 const isBlur = ref(false);
+const inputText = ref('');
 const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");
 const word = computed(() => IMG_LIST[count.value]?.word || "nothing");
-
-
 
 // 下一张
 function nextWord() {
   if (count.value < IMG_LIST.length - 1) count.value++;
+}
+// 校验答案
+function checkAnswer(){
+  console.log(inputText.value);
+  ElMessage.success('Bingo!');
+  
 }
 </script>
 
@@ -79,5 +84,16 @@ function nextWord() {
       }
     }
   }
+}
+.card-input {
+  margin-top: 2rem;
+  input {
+    border-bottom: 1px solid $bg-dark;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  input::-webkit-input-placeholder {  
+  color: #cccacab2;  
+}  
 }
 </style>
