@@ -1,19 +1,64 @@
 <template>
-      <div class="card-img"></div>
-
+  <div class="card-img flex-center">
+    <div class="card-img-title flex-center">
+      <h2 :class="['title-word', !isBlur ? 'blur-item' : '']">{{ word }}</h2>
+      <TitleToggle @onchange="(res) => (isBlur = res)"></TitleToggle>
+    </div>
+    <div class="card-img-item">
+      <img :src="imgUrl" alt="img" />
+    </div>
+    <div class="card-input">
+      <EditInput
+        v-model:input-title="inputText"
+        placeholder="Check your answer"
+        @keyup.enter="checkAnswer"
+      ></EditInput>
+    </div>
+  </div>
 </template>
 
 <script setup>
+import EditInput from "./EditInput.vue";
+import TitleToggle from "./TitleToggle.vue";
+import { useInitEffect } from "./useInit";
 
+// Blur-Card相关全部逻辑
+const { isBlur, imgUrl, word, inputText, checkAnswer, nextWord } =
+  useInitEffect();
 </script>
 
 <style lang="scss" scoped>
-  .card-img {
-    flex: 2;
-    margin: 0 1rem;
-    min-width: 32rem;
-    box-shadow: 0 0 10px #ccc;
-    background-color: $bg-base;
-    border-radius: 10px;
+// 图片区域
+.card-img {
+  margin: 0 1rem;
+  min-width: 42rem;
+  box-shadow: 0 0 10px #ccc;
+  background-color: $bg-base;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  &-item {
+    img {
+      width: 28rem;
+    }
   }
+  &-title {
+    width: 80%;
+    padding: 2rem 0;
+    position: relative;
+  }
+}
+.card-input {
+  margin-top: 2rem;
+  input {
+    border-bottom: 1px solid $bg-dark;
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  input::-webkit-input-placeholder {
+    color: #cccacab2;
+  }
+}
+
 </style>

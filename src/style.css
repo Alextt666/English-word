@@ -8,7 +8,8 @@ body {
   background-color: #eff3f9;
 }
 
-.flex-center{
+
+.flex-center {
   display: flex;
   justify-content: center;
   align-items: center;

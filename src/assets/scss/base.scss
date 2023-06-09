@@ -1,1 +1,5 @@
-@import './mixins'
+@import "./mixins";
+
+.blur-item {
+  filter: blur(10px);
+}
