@@ -22,5 +22,8 @@ export function registDirectives(app) {
       }
       el.addEventListener("click", debounce(value, 500));
     },
+    beforeUnmount(el, binding) {
+      el.removeEventListener("click", debounce(value, 500));
+    },
   });
 }
