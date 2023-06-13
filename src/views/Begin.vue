@@ -23,7 +23,6 @@ import { ref } from "vue";
 const { nextWord, imgUrl, word, checkAnswer } = useInitEffect();
 const nextb = ref(null);
 
-
 // 下一张
 const handleNext = () => {
   nextWord();

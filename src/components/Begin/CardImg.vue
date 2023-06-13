@@ -21,7 +21,7 @@
 import EditInput from "./EditInput.vue";
 import TitleToggle from "./TitleToggle.vue";
 import { useInitEffect } from "./useInit";
-import { ref } from "vue";
+import { ref, watchEffect } from "vue";
 const inputText = ref("");
 const props = defineProps({
   imgUrl: {
@@ -32,11 +32,17 @@ const props = defineProps({
   },
 });
 
+watchEffect(()=>{
+  if(props.word){
+    inputText.value = ""
+  }
+})
+
 const emits = defineEmits(["onCheck"]);
 const handleCheck = () => {
-  emits("onCheck",inputText.value);
+  emits("onCheck", inputText.value);
 };
-// 模糊组件控制 与 当前示例数据无关 
+// 模糊组件控制 与 当前示例数据无关
 const { isBlur } = useInitEffect();
 </script>
 

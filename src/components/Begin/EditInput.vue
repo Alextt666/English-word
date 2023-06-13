@@ -1,5 +1,5 @@
 <template>
-  <input type="text" v-focus @input="onInputChange" v-bind="$attrs" />
+  <input type="text" :value="inputTitle" v-focus @input="onInputChange" v-bind="$attrs" />
 </template>
 
 <script setup>
