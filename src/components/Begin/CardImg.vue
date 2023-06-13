@@ -11,7 +11,7 @@
       <EditInput
         v-model:input-title="inputText"
         placeholder="Check your answer"
-        @keyup.enter="checkAnswer"
+        @keyup.enter="handleCheck"
       ></EditInput>
     </div>
   </div>
@@ -21,10 +21,23 @@
 import EditInput from "./EditInput.vue";
 import TitleToggle from "./TitleToggle.vue";
 import { useInitEffect } from "./useInit";
+import { ref } from "vue";
+const inputText = ref("");
+const props = defineProps({
+  imgUrl: {
+    type: String,
+  },
+  word: {
+    type: String,
+  },
+});
 
-// Blur-Card相关全部逻辑
-const { isBlur, imgUrl, word, inputText, checkAnswer, nextWord } =
-  useInitEffect();
+const emits = defineEmits(["onCheck"]);
+const handleCheck = () => {
+  emits("onCheck",inputText.value);
+};
+// 模糊组件控制 与 当前示例数据无关 
+const { isBlur } = useInitEffect();
 </script>
 
 <style lang="scss" scoped>
@@ -57,7 +70,7 @@ const { isBlur, imgUrl, word, inputText, checkAnswer, nextWord } =
 }
 .card-input {
   margin-top: 1.5rem;
-  
+
   input {
     border-bottom: 1px solid $bg-dark;
     font-size: 1.5rem;
@@ -67,5 +80,4 @@ const { isBlur, imgUrl, word, inputText, checkAnswer, nextWord } =
     color: #cccacab2;
   }
 }
-
 </style>

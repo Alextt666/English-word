@@ -1,14 +1,31 @@
 <template>
   <div class="begin-wrapper">
-   <CardImg></CardImg>
-   
+    <CardImg
+      :imgUrl="imgUrl"
+      :word="word"
+      @onCheck="
+        (value) => {
+          checkAnswer(value);
+        }
+      "
+    ></CardImg>
+    <button @click="handleNext">next</button>
   </div>
 </template>
 
 <script setup>
-import CardImg from '@/components/Begin/CardImg.vue';
+import CardImg from "@/components/Begin/CardImg.vue";
+import { useInitEffect } from "../components/Begin/useInit";
 
+// Blur-Card相关全部逻辑
+// 需要共用同一个示例
+const { nextWord, imgUrl, word, checkAnswer } = useInitEffect();
 
+// 下一张
+const handleNext = () => {
+  nextWord();
+  return;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -19,7 +36,5 @@ import CardImg from '@/components/Begin/CardImg.vue';
   height: 68%;
   justify-content: center;
   transition: 1s all;
- 
 }
-
 </style>

@@ -11,11 +11,14 @@ export function useInitEffect() {
   const isBlur = ref(false);
   const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");
   const word = computed(() => IMG_LIST[count.value]?.word || "nothing");
-  const inputText = ref("");
 
   // keyup.enter 校验答案
-  function checkAnswer() {
-    const ipt = formatStr(inputText.value);
+  function checkAnswer(inputText) {
+    if (!inputText) {
+      ElMessage.warning("input is empty!");
+      return;
+    }
+    const ipt = formatStr(inputText);
     const ownWord = formatStr(word.value);
     if (ipt === ownWord) {
       ElMessage.success("Bingo!");
@@ -26,8 +29,12 @@ export function useInitEffect() {
 
   // 下一张
   function nextWord() {
-    if (count.value < IMG_LIST.length - 1) count.value++;
+    if (count.value < IMG_LIST.length - 1) {
+      count.value++;
+    } else {
+      ElMessage.warning("no more!");
+    }
   }
 
-  return { count, isBlur, imgUrl, word, inputText, checkAnswer ,nextWord};
+  return { count, isBlur, imgUrl, word, checkAnswer, nextWord };
 }

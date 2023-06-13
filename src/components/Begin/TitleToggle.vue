@@ -12,7 +12,6 @@ const emits = defineEmits(['onchange'])
 function toggle(){
     curShow.value = !curShow.value
     emits('onchange',curShow.value);
-
 }
 </script>
 
