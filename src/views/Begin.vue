@@ -1,6 +1,7 @@
 <template>
   <div class="begin-wrapper">
    <CardImg></CardImg>
+   
   </div>
 </template>
 

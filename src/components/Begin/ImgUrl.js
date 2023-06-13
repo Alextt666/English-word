@@ -1,6 +1,7 @@
+// 测试数据文件
 const IMG_LIST = [
   {
-    url: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/21272d8b-36b1-459b-a53c-a7ce3daec4e3/width=1920/00062-3435036155.jpeg",
+    url: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45a9e1ad-ce9c-43e7-a1f0-89daf2b5848a/width=2048/00014-2116310968.jpeg",
     word: "Some Word",
   },
 ];

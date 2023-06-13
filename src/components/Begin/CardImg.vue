@@ -39,8 +39,14 @@ const { isBlur, imgUrl, word, inputText, checkAnswer, nextWord } =
   justify-content: flex-start;
 
   &-item {
+    width: 24rem;
+    min-height: 15rem;
+    height: 18rem;
+    border-radius: 5px;
+    box-shadow: 0 0 12px #616161;
+    overflow: hidden;
     img {
-      width: 28rem;
+      width: 100%;
     }
   }
   &-title {
@@ -50,7 +56,8 @@ const { isBlur, imgUrl, word, inputText, checkAnswer, nextWord } =
   }
 }
 .card-input {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  
   input {
     border-bottom: 1px solid $bg-dark;
     font-size: 1.5rem;
