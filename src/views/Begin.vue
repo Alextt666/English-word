@@ -9,7 +9,7 @@
         }
       "
     ></CardImg>
-    <NextBtn @click="handleNext" ref="nextb"></NextBtn>
+    <NextBtn v-debounce="[handleNext, exposeRightMove]" ref="nextb"></NextBtn>
   </div>
 </template>
 
@@ -24,13 +24,17 @@ const { nextWord, imgUrl, word, checkAnswer } = useInitEffect();
 const nextb = ref(null);
 
 
-
 // 下一张
 const handleNext = () => {
-  nextb.value.rightAnimate();
   nextWord();
   return;
 };
+// 暴露的动效
+const exposeRightMove = () => {
+  nextb.value.rightAnimate();
+};
+
+// v-click-
 </script>
 
 <style lang="scss" scoped>
