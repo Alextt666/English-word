@@ -14,9 +14,9 @@
 </template>
 
 <script setup>
-import CardImg from "@/components/Begin/CardImg.vue";
-import NextBtn from "@/components/Begin/NextBtn.vue";
-import { useInitEffect } from "../components/Begin/useInit";
+import CardImg from "comp/Begin/CardImg.vue";
+import NextBtn from "comp/Begin/NextBtn.vue";
+import { useInitEffect } from "comp/Begin/useInit";
 import { ref } from "vue";
 // Blur-Card相关全部逻辑
 // 需要共用同一个示例

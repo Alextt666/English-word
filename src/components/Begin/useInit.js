@@ -1,5 +1,4 @@
 import { ref, computed } from "vue";
-// import { IMG_LIST } from "@/components/Begin/imgUrl.js";
 
 // 格式转换工具
 function formatStr(str) {
@@ -7,7 +6,9 @@ function formatStr(str) {
 }
 export async function useInitEffect() {
   let IMG_LIST;
-  await fetch('./api/getWords').then(res=> res.json()).then(res=>{ IMG_LIST = res.data })
+  IMG_LIST = await fetch("./api/getWords")
+    .then((res) => res.json())
+    .then((res) => res.data);
   // 初始化
   const count = ref(0);
   const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");

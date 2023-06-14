@@ -6,9 +6,9 @@
   </div>
 </template>
 <script setup>
-import HeaderNav from "./components/HeaderNav.vue";
-import SideBar from "./components/SideBar/SideBar.vue";
-import BodyPage from "./components/BodyPage.vue";
+import HeaderNav from "comp/HeaderNav.vue";
+import SideBar from "comp/SideBar/SideBar.vue";
+import BodyPage from "comp/BodyPage/BodyPage.vue";
 import { defineComponent } from "vue";
 
 defineComponent({
