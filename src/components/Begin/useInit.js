@@ -1,14 +1,15 @@
 import { ref, computed } from "vue";
-import { IMG_LIST } from "@/components/Begin/imgUrl.js";
+// import { IMG_LIST } from "@/components/Begin/imgUrl.js";
 
 // 格式转换工具
 function formatStr(str) {
   return str.replace(/\s/g, "").toLowerCase();
 }
-export function useInitEffect() {
+export async function useInitEffect() {
+  let IMG_LIST;
+  await fetch('./api/getWords').then(res=> res.json()).then(res=>{ IMG_LIST = res.data })
   // 初始化
   const count = ref(0);
-  const isBlur = ref(false);
   const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");
   const word = computed(() => IMG_LIST[count.value]?.word || "nothing");
 
@@ -36,5 +37,5 @@ export function useInitEffect() {
     }
   }
 
-  return { count, isBlur, imgUrl, word, checkAnswer, nextWord };
+  return { count, imgUrl, word, checkAnswer, nextWord };
 }

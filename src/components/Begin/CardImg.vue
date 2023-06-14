@@ -20,7 +20,6 @@
 <script setup>
 import EditInput from "./EditInput.vue";
 import TitleToggle from "./TitleToggle.vue";
-import { useInitEffect } from "./useInit";
 import { ref, watchEffect } from "vue";
 const inputText = ref("");
 const props = defineProps({
@@ -43,7 +42,8 @@ const handleCheck = () => {
   emits("onCheck", inputText.value);
 };
 // 模糊组件控制 与 当前示例数据无关
-const { isBlur } = useInitEffect();
+const isBlur = ref(false);
+
 </script>
 
 <style lang="scss" scoped>

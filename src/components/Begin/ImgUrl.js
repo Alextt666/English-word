@@ -1,11 +1,11 @@
 // 测试数据文件
 const IMG_LIST = [
   {
-    url: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/45a9e1ad-ce9c-43e7-a1f0-89daf2b5848a/width=2048/00014-2116310968.jpeg",
+    url: "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/623ea962-498c-4f9f-9de2-093399297c8b/width=450/tmp63c92kk2.jpeg",
     word: "Some Word",
   },
   {
-    url:'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/d0f25272-31f5-4390-b112-a5f71ec33640/width=450/31a84837854ebed8fa7c4158e97c0f4.jpeg',
+    url:'https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/8ca575e0-8cc1-4e74-b7db-7d5ca53b7f67/width=450/05514-1183481471-1girl,cetus,coda,ocean.jpeg',
     word:'other word',
   }
 ];

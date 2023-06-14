@@ -20,7 +20,8 @@ import { useInitEffect } from "../components/Begin/useInit";
 import { ref } from "vue";
 // Blur-Card相关全部逻辑
 // 需要共用同一个示例
-const { nextWord, imgUrl, word, checkAnswer } = useInitEffect();
+const { nextWord, imgUrl, word, checkAnswer } = await useInitEffect();
+
 const nextb = ref(null);
 
 // 下一张
