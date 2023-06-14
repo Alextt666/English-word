@@ -1,3 +1,6 @@
+import { debounce } from "../utils";
+
+
 export function registDirectives(app) {
   // 自定义focus指令
   // 自动聚焦
@@ -10,19 +13,9 @@ export function registDirectives(app) {
   // fn 待执行函数, preFn 正常执行的函数
   app.directive("debounce", {
     mounted(el, { value }) {
-      function debounce([fn, preFn], delay = 500) {
-        let timer = null;
-        return function () {
-          if (preFn) preFn();
-          if (timer !== null) {
-            clearTimeout(timer);
-          }
-          timer = setTimeout(fn, delay);
-        };
-      }
       el.addEventListener("click", debounce(value, 500));
     },
-    beforeUnmount(el, binding) {
+    beforeUnmount(el, {value}) {
       el.removeEventListener("click", debounce(value, 500));
     },
   });
