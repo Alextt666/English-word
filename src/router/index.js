@@ -4,9 +4,9 @@ import Begin from "@/views/Begin.vue";
 import Help from "@/views/Help.vue";
 
 const routes = [
-  { path: "/", redirect: "/General" },
-  { path: "/General", name: "General", component: Dashbord },
+  { path: "/", redirect: "/Begin" },
   { path: "/Begin", name: "Begin", component: Begin },
+  { path: "/General", name: "General", component: Dashbord },
   { path: "/Help", name: "Help", component: Help },
 ];
 
