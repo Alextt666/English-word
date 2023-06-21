@@ -1,4 +1,5 @@
 import { ref, computed } from "vue";
+import { getAllWord } from "@/request";
 
 // 格式转换工具
 function formatStr(str) {
@@ -6,9 +7,8 @@ function formatStr(str) {
 }
 export async function useInitEffect() {
   let IMG_LIST;
-  IMG_LIST = await fetch("./api/getWords")
-    .then((res) => res.json())
-    .then((res) => res.data);
+  IMG_LIST = await getAllWord();
+
   // 初始化
   const count = ref(0);
   const imgUrl = computed(() => IMG_LIST[count.value]?.url || "");

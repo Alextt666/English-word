@@ -28,6 +28,7 @@ export default defineConfig({
       "comp": path.resolve(__dirname, "src/components"),
     },
   },
+  envDir:'./env',
   css: {
     preprocessorOptions: {
       scss: {
