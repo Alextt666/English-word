@@ -17,7 +17,7 @@
         <template v-for="tag in navTags" :key="tag">
           <div :data-type="tag">
             <img
-              :src="`src/assets/images/${tag}.svg`"
+              :src="`@/assets/images/${tag}.svg`"
               alt="icon"
               @click="navigateTo"
             />

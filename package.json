@@ -10,6 +10,7 @@
     "dev": "vite",
     "dev:stage":"vite --mode stage",
     "build": "vite build",
+    "build:prod": "vite build --mode prod",
     "preview": "vite preview"
   },
   "dependencies": {

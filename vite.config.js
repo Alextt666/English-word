@@ -22,11 +22,12 @@ export default defineConfig({
       // enable:true
     }),
   ],
-  base: "/",
+  base: "./",
   resolve: {
     alias: {
-      "@": path.resolve(__dirname, "src"),
-      "comp": path.resolve(__dirname, "src/components"),
+      "@": path.resolve(__dirname, "./src"),
+      "comp": path.resolve(__dirname, "./src/components"),
+      "images":path.resolve(__dirname,'./src/assets/images')
     },
   },
   envDir:'./env',
